@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **v1EndpointPost**
 ```swift
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil, completion: @escaping (_ data: V1EndpointPost200Response?, _ error: Error?) -> Void)
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil, completion: @escaping (_ data: ResponseModelA?, _ error: Error?) -> Void)
 ```
 
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1EndpointPost200Response**](V1EndpointPost200Response.md)
+[**ResponseModelA**](ResponseModelA.md)
 
 ### Authorization
 

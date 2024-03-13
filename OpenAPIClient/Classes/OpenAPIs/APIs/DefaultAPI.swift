@@ -43,7 +43,7 @@ open class DefaultAPI {
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: V1EndpointPost200Response?, _ error: Error?) -> Void)) -> RequestTask {
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
         return v1EndpointPostWithRequestBuilder(stage: stage, id: id, type: type, scope: scope, name: name, description: description, summary: summary, key: key).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
@@ -64,9 +64,9 @@ open class DefaultAPI {
      - parameter description: (form)  (optional)
      - parameter summary: (form)  (optional)
      - parameter key: (form)  (optional)
-     - returns: RequestBuilder<V1EndpointPost200Response> 
+     - returns: RequestBuilder<ResponseModelA> 
      */
-    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil) -> RequestBuilder<V1EndpointPost200Response> {
+    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil) -> RequestBuilder<ResponseModelA> {
         let localVariablePath = "/v1/endpoint"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
@@ -91,7 +91,7 @@ open class DefaultAPI {
 
         let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
 
-        let localVariableRequestBuilder: RequestBuilder<V1EndpointPost200Response>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+        let localVariableRequestBuilder: RequestBuilder<ResponseModelA>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
         return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: false)
     }
