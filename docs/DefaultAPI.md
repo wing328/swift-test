@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **v1EndpointPost**
 ```swift
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil, completion: @escaping (_ data: ResponseModelA?, _ error: Error?) -> Void)
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String, type: ModelType_v1EndpointPost, scope: String, name: String, description: String, completion: @escaping (_ data: ResponseModelA?, _ error: Error?) -> Void)
 ```
 
 
@@ -20,15 +20,13 @@ Method | HTTP request | Description
 import OpenAPIClient
 
 let stage = "stage_example" // String | 
-let id = "id_example" // String |  (optional)
-let type = "type_example" // String |  (optional)
-let scope = "scope_example" // String |  (optional)
-let name = "name_example" // String |  (optional)
-let description = "description_example" // String |  (optional)
-let summary = "summary_example" // String |  (optional)
-let key = "key_example" // String |  (optional)
+let id = "id_example" // String | 
+let type = "type_example" // String | 
+let scope = "scope_example" // String | 
+let name = "name_example" // String | 
+let description = "description_example" // String | 
 
-DefaultAPI.v1EndpointPost(stage: stage, id: id, type: type, scope: scope, name: name, description: description, summary: summary, key: key) { (response, error) in
+DefaultAPI.v1EndpointPost(stage: stage, id: id, type: type, scope: scope, name: name, description: description) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -45,13 +43,11 @@ DefaultAPI.v1EndpointPost(stage: stage, id: id, type: type, scope: scope, name: 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stage** | **String** |  | 
- **id** | **String** |  | [optional] 
- **type** | **String** |  | [optional] 
- **scope** | **String** |  | [optional] 
- **name** | **String** |  | [optional] 
- **description** | **String** |  | [optional] 
- **summary** | **String** |  | [optional] 
- **key** | **String** |  | [optional] 
+ **id** | **String** |  | 
+ **type** | **String** |  | 
+ **scope** | **String** |  | 
+ **name** | **String** |  | 
+ **description** | **String** |  | 
 
 ### Return type
 

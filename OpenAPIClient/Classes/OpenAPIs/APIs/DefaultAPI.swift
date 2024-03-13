@@ -32,19 +32,17 @@ open class DefaultAPI {
     /**
 
      - parameter stage: (header)  
-     - parameter id: (form)  (optional)
-     - parameter type: (form)  (optional)
-     - parameter scope: (form)  (optional)
-     - parameter name: (form)  (optional)
-     - parameter description: (form)  (optional)
-     - parameter summary: (form)  (optional)
-     - parameter key: (form)  (optional)
+     - parameter id: (form)  
+     - parameter type: (form)  
+     - parameter scope: (form)  
+     - parameter name: (form)  
+     - parameter description: (form)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
-        return v1EndpointPostWithRequestBuilder(stage: stage, id: id, type: type, scope: scope, name: name, description: description, summary: summary, key: key).execute(apiResponseQueue) { result in
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String, type: ModelType_v1EndpointPost, scope: String, name: String, description: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
+        return v1EndpointPostWithRequestBuilder(stage: stage, id: id, type: type, scope: scope, name: name, description: description).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -57,26 +55,22 @@ open class DefaultAPI {
     /**
      - POST /v1/endpoint
      - parameter stage: (header)  
-     - parameter id: (form)  (optional)
-     - parameter type: (form)  (optional)
-     - parameter scope: (form)  (optional)
-     - parameter name: (form)  (optional)
-     - parameter description: (form)  (optional)
-     - parameter summary: (form)  (optional)
-     - parameter key: (form)  (optional)
+     - parameter id: (form)  
+     - parameter type: (form)  
+     - parameter scope: (form)  
+     - parameter name: (form)  
+     - parameter description: (form)  
      - returns: RequestBuilder<ResponseModelA> 
      */
-    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, id: String? = nil, type: ModelType_v1EndpointPost? = nil, scope: String? = nil, name: String? = nil, description: String? = nil, summary: String? = nil, key: String? = nil) -> RequestBuilder<ResponseModelA> {
+    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, id: String, type: ModelType_v1EndpointPost, scope: String, name: String, description: String) -> RequestBuilder<ResponseModelA> {
         let localVariablePath = "/v1/endpoint"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableFormParams: [String: Any?] = [
-            "id": id?.encodeToJSON(),
-            "type": type?.encodeToJSON(),
-            "scope": scope?.encodeToJSON(),
-            "name": name?.encodeToJSON(),
-            "description": description?.encodeToJSON(),
-            "summary": summary?.encodeToJSON(),
-            "key": key?.encodeToJSON(),
+            "id": id.encodeToJSON(),
+            "type": type.encodeToJSON(),
+            "scope": scope.encodeToJSON(),
+            "name": name.encodeToJSON(),
+            "description": description.encodeToJSON(),
         ]
 
         let localVariableNonNullParameters = APIHelper.rejectNil(localVariableFormParams)

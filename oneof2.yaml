@@ -19,10 +19,7 @@ paths:
         content:
           application/x-www-form-urlencoded; charset=utf-8:
             schema:
-              oneOf:
-                - $ref: '#/components/schemas/RequestModelA'
-                - $ref: '#/components/schemas/RequestModelB'
-                - $ref: '#/components/schemas/RequestModelC'
+              $ref: '#/components/schemas/RequestModelA'
         required: true
       responses:
         '200':
