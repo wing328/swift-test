@@ -23,13 +23,13 @@ open class DefaultAPI {
     /**
 
      - parameter stage: (header)  
-     - parameter requestModelA: (body)  
+     - parameter v1EndpointPostRequest: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, requestModelA: RequestModelA, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
-        return v1EndpointPostWithRequestBuilder(stage: stage, requestModelA: requestModelA).execute(apiResponseQueue) { result in
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, v1EndpointPostRequest: V1EndpointPostRequest, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
+        return v1EndpointPostWithRequestBuilder(stage: stage, v1EndpointPostRequest: v1EndpointPostRequest).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -42,13 +42,13 @@ open class DefaultAPI {
     /**
      - POST /v1/endpoint
      - parameter stage: (header)  
-     - parameter requestModelA: (body)  
+     - parameter v1EndpointPostRequest: (body)  
      - returns: RequestBuilder<ResponseModelA> 
      */
-    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, requestModelA: RequestModelA) -> RequestBuilder<ResponseModelA> {
+    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, v1EndpointPostRequest: V1EndpointPostRequest) -> RequestBuilder<ResponseModelA> {
         let localVariablePath = "/v1/endpoint"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestModelA)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: v1EndpointPostRequest)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

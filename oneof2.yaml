@@ -19,7 +19,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RequestModelA'
+              oneOf:
+                - $ref: '#/components/schemas/RequestModelA'
+                - $ref: '#/components/schemas/RequestModelB'
+                - $ref: '#/components/schemas/RequestModelC'
         required: true
       responses:
         '200':

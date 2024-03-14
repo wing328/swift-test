@@ -16,6 +16,7 @@ OpenAPIClient/Classes/OpenAPIs/Models/RequestModelB.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RequestModelC.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ResponseModelA.swift
 OpenAPIClient/Classes/OpenAPIs/Models/ResponseModelB.swift
+OpenAPIClient/Classes/OpenAPIs/Models/V1EndpointPostRequest.swift
 OpenAPIClient/Classes/OpenAPIs/OpenISO8601DateFormatter.swift
 OpenAPIClient/Classes/OpenAPIs/SynchronizedDictionary.swift
 OpenAPIClient/Classes/OpenAPIs/URLSessionImplementations.swift
@@ -28,5 +29,6 @@ docs/RequestModelB.md
 docs/RequestModelC.md
 docs/ResponseModelA.md
 docs/ResponseModelB.md
+docs/V1EndpointPostRequest.md
 git_push.sh
 project.yml

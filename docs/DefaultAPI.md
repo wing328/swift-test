@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 # **v1EndpointPost**
 ```swift
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, requestModelA: RequestModelA, completion: @escaping (_ data: ResponseModelA?, _ error: Error?) -> Void)
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, v1EndpointPostRequest: V1EndpointPostRequest, completion: @escaping (_ data: ResponseModelA?, _ error: Error?) -> Void)
 ```
 
 
@@ -20,9 +20,9 @@ Method | HTTP request | Description
 import OpenAPIClient
 
 let stage = "stage_example" // String | 
-let requestModelA = RequestModelA(id: "id_example", type: "type_example", scope: "scope_example", name: "name_example", description: "description_example") // RequestModelA | 
+let v1EndpointPostRequest = _v1_endpoint_post_request(id: "id_example", type: "type_example", scope: "scope_example", name: "name_example", description: "description_example", summary: "summary_example", key: "key_example") // V1EndpointPostRequest | 
 
-DefaultAPI.v1EndpointPost(stage: stage, requestModelA: requestModelA) { (response, error) in
+DefaultAPI.v1EndpointPost(stage: stage, v1EndpointPostRequest: v1EndpointPostRequest) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -39,7 +39,7 @@ DefaultAPI.v1EndpointPost(stage: stage, requestModelA: requestModelA) { (respons
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **stage** | **String** |  | 
- **requestModelA** | [**RequestModelA**](RequestModelA.md) |  | 
+ **v1EndpointPostRequest** | [**V1EndpointPostRequest**](V1EndpointPostRequest.md) |  | 
 
 ### Return type
 

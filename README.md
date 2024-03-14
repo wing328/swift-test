@@ -36,6 +36,7 @@ Class | Method | HTTP request | Description
  - [RequestModelC](docs/RequestModelC.md)
  - [ResponseModelA](docs/ResponseModelA.md)
  - [ResponseModelB](docs/ResponseModelB.md)
+ - [V1EndpointPostRequest](docs/V1EndpointPostRequest.md)
 
 
 <a id="documentation-for-authorization"></a>
