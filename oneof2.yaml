@@ -17,7 +17,7 @@ paths:
         - $ref: '#/components/parameters/stage'
       requestBody:
         content:
-          application/x-www-form-urlencoded; charset=utf-8:
+          application/json:
             schema:
               $ref: '#/components/schemas/RequestModelA'
         required: true

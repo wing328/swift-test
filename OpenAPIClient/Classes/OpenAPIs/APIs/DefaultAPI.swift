@@ -21,28 +21,15 @@ open class DefaultAPI {
     }
 
     /**
-     * enum for parameter type
-     */
-    public enum ModelType_v1EndpointPost: String, CaseIterable {
-        case value1 = "value1"
-        case value2 = "value2"
-        case value3 = "value3"
-    }
-
-    /**
 
      - parameter stage: (header)  
-     - parameter id: (form)  
-     - parameter type: (form)  
-     - parameter scope: (form)  
-     - parameter name: (form)  
-     - parameter description: (form)  
+     - parameter requestModelA: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
     @discardableResult
-    open class func v1EndpointPost(stage: Stage_v1EndpointPost, id: String, type: ModelType_v1EndpointPost, scope: String, name: String, description: String, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
-        return v1EndpointPostWithRequestBuilder(stage: stage, id: id, type: type, scope: scope, name: name, description: description).execute(apiResponseQueue) { result in
+    open class func v1EndpointPost(stage: Stage_v1EndpointPost, requestModelA: RequestModelA, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseModelA?, _ error: Error?) -> Void)) -> RequestTask {
+        return v1EndpointPostWithRequestBuilder(stage: stage, requestModelA: requestModelA).execute(apiResponseQueue) { result in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -55,31 +42,18 @@ open class DefaultAPI {
     /**
      - POST /v1/endpoint
      - parameter stage: (header)  
-     - parameter id: (form)  
-     - parameter type: (form)  
-     - parameter scope: (form)  
-     - parameter name: (form)  
-     - parameter description: (form)  
+     - parameter requestModelA: (body)  
      - returns: RequestBuilder<ResponseModelA> 
      */
-    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, id: String, type: ModelType_v1EndpointPost, scope: String, name: String, description: String) -> RequestBuilder<ResponseModelA> {
+    open class func v1EndpointPostWithRequestBuilder(stage: Stage_v1EndpointPost, requestModelA: RequestModelA) -> RequestBuilder<ResponseModelA> {
         let localVariablePath = "/v1/endpoint"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableFormParams: [String: Any?] = [
-            "id": id.encodeToJSON(),
-            "type": type.encodeToJSON(),
-            "scope": scope.encodeToJSON(),
-            "name": name.encodeToJSON(),
-            "description": description.encodeToJSON(),
-        ]
-
-        let localVariableNonNullParameters = APIHelper.rejectNil(localVariableFormParams)
-        let localVariableParameters = APIHelper.convertBoolToString(localVariableNonNullParameters)
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestModelA)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 
         let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+            "Content-Type": "application/json",
             "Stage": stage.encodeToJSON(),
         ]
 
